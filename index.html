@@ -53,8 +53,33 @@
         .header h1 {
             font-weight: 700;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-            margin-bottom: 0;
+            margin-bottom: 5px;
             position: relative;
+        }
+        
+        .institution-info {
+            margin-top: 15px;
+            text-align: center;
+            line-height: 1.8;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .institution-info .university {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #FFD700; /* Màu vàng nổi bật */
+        }
+        
+        .institution-info .lecture {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #FFA500; /* Màu cam */
+        }
+        
+        .institution-info .subject {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #90EE90; /* Màu xanh lá sáng */
         }
         
         .header i {
@@ -553,6 +578,96 @@
             font-size: 20px;
         }
         
+        /* Hướng dẫn sử dụng */
+        .guide-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+            border: 1px solid #e0e0e0;
+            overflow: hidden;
+        }
+        
+        .guide-header {
+            background: linear-gradient(to right, #3498db, #2c3e50);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .guide-header h3 {
+            margin: 0;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .guide-header h3 i {
+            margin-right: 10px;
+        }
+        
+        .guide-content {
+            padding: 20px;
+            display: none;
+        }
+        
+        .guide-content.active {
+            display: block;
+        }
+        
+        .guide-step {
+            display: flex;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .step-number {
+            background: #3498db;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .step-content h4 {
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        
+        .step-content p {
+            margin: 0;
+            color: #555;
+        }
+        
+        .step-image {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 8px;
+            margin-top: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .guide-footer {
+            text-align: center;
+            padding: 15px;
+            background: #e9ecef;
+            border-top: 1px solid #dee2e6;
+            font-style: italic;
+            color: #6c757d;
+        }
+        
         @media (max-width: 992px) {
             #tree-container {
                 height: 550px;
@@ -569,6 +684,18 @@
             
             .video-iframe {
                 height: 300px;
+            }
+            
+            .institution-info .university {
+                font-size: 1.2rem;
+            }
+            
+            .institution-info .lecture {
+                font-size: 1.1rem;
+            }
+            
+            .institution-info .subject {
+                font-size: 1rem;
             }
         }
         
@@ -606,6 +733,26 @@
             .test-button {
                 padding: 12px 25px;
                 font-size: 16px;
+            }
+            
+            .institution-info .university {
+                font-size: 1.1rem;
+            }
+            
+            .institution-info .lecture {
+                font-size: 1rem;
+            }
+            
+            .institution-info .subject {
+                font-size: 0.9rem;
+            }
+            
+            .guide-step {
+                flex-direction: column;
+            }
+            
+            .step-number {
+                margin-bottom: 10px;
             }
         }
         
@@ -649,10 +796,87 @@
     <div class="header">
         <div class="container text-center">
             <h1><i class="fas fa-atom"></i> Kim loại màu và Hợp kim màu</h1>
+            <div class="institution-info">
+                <div class="university">Trường Đại học Trần Đại Nghĩa</div>
+                <div class="lecture">Bài giảng điện tử: "Kim loại màu và Hợp kim màu"</div>
+                <div class="subject">Môn học Công nghệ kim loại và Nghề cơ khí</div>
+            </div>
         </div>
     </div>
 
     <div class="container">
+        <!-- Thêm phần hướng dẫn sử dụng -->
+        <div class="guide-container">
+            <div class="guide-header" id="guide-toggle">
+                <h3><i class="fas fa-map-signs"></i> Hướng Dẫn Sử Dụng Trang Web</h3>
+                <span id="guide-chevron"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="guide-content" id="guide-content">
+                <div class="guide-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Khám Phá Sơ Đồ Tương Tác</h4>
+                        <p>Bắt đầu bằng cách khám phá sơ đồ tương tác ở giữa trang. Sơ đồ này thể hiện mối quan hệ giữa các kim loại màu và hợp kim màu. Nhấp vào bất kỳ nút nào để xem thông tin chi tiết.</p>
+                        <p>Mỗi nút có màu sắc khác nhau để phân biệt loại vật liệu:</p>
+                        <ul>
+                            <li><span style="color: #e74c3c; font-weight: bold;">Đỏ</span>: Đồng</li>
+                            <li><span style="color: #e67e22; font-weight: bold;">Cam</span>: Hợp kim đồng</li>
+                            <li><span style="color: #7f8c8d; font-weight: bold;">Xám</span>: Nhôm</li>
+                            <li><span style="color: #3498db; font-weight: bold;">Xanh dương</span>: Hợp kim nhôm</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="guide-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Tìm Kiếm Thông Tin</h4>
+                        <p>Sử dụng ô tìm kiếm ở đầu trang để nhanh chóng tìm kiếm thông tin về một kim loại hoặc hợp kim cụ thể. Chỉ cần nhập tên và nhấn nút tìm kiếm hoặc phím Enter.</p>
+                    </div>
+                </div>
+                
+                <div class="guide-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Xem Thông Tin Chi Tiết</h4>
+                        <p>Khi nhấp vào một nút trên sơ đồ, thông tin chi tiết sẽ xuất hiện ở panel bên dưới. Bạn có thể xem:</p>
+                        <ul>
+                            <li>Tính chất vật lý và hóa học</li>
+                            <li>Ứng dụng thực tế</li>
+                            <li>Ký hiệu và tiêu chuẩn</li>
+                            <li>Hình ảnh minh họa</li>
+                            <li>Video giải thích (nếu có)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="guide-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>Điều Chỉnh Giao Diện</h4>
+                        <p>Sử dụng các nút điều khiển zoom ở góc trên bên phải sơ đồ để:</p>
+                        <ul>
+                            <li>Phóng to (<i class="fas fa-search-plus"></i>) - Xem chi tiết các nút</li>
+                            <li>Thu nhỏ (<i class="fas fa-search-minus"></i>) - Xem toàn bộ sơ đồ</li>
+                            <li>Đặt lại (<i class="fas fa-sync-alt"></i>) - Trở về chế độ xem mặc định</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="guide-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h4>Kiểm Tra Kiến Thức</h4>
+                        <p>Cuối trang có nút "Kiểm tra" để đánh giá kiến thức bạn đã học được. Bài kiểm tra được thiết kế dưới dạng Google Form với các câu hỏi trắc nghiệm.</p>
+                    </div>
+                </div>
+                
+                <div class="guide-footer">
+                    Bây giờ bạn đã sẵn sàng để khám phá thế giới của kim loại màu và hợp kim màu. Hãy bắt đầu từ sơ đồ tương tác!
+                </div>
+            </div>
+        </div>
+        
         <div class="search-header">
             <h2><i class="fas fa-diagram-project"></i> Sơ đồ tương tác</h2>
             <div class="search-container">
@@ -800,7 +1024,7 @@
                                     <li>Sản xuất dây điện, que hàn</li>
                                     <li>Bo mạch điện tử, ống chân không</li>
                                     <li>Tản nhiệt, chất bán dẫn</li>
-                                    <li>Kết nối điện tử, điện cực</li>
+                                    <li>Kết cấu điện tử, điện cực</li>
                                     <li>Rơ le điện, nam châm điện</li>
                                     <li>Ống nước, hệ thống ống dẫn</li>
                                     <li>Trong kiến trúc và nghệ thuật</li>
@@ -880,7 +1104,7 @@
                             "name": "Đồng thau (Latông)",
                             "info": `<div class='info-section'>
                                 <div class='info-section-title'><i class='fas fa-coins'></i> Đồng thau (Latông):</div>
-                                <p>Là hợp kim của đồng và kẽm với thành phần kẽm ≤ 45%.</p>
+                                <p>Là hợp kim của đồng và kẽma với thành phần kẽm ≤ 45%.</p>
                                 <p>Ứng dụng của đồng thau:</p>
                                 <ul>
                                     <li>Dùng để hàn vảy cho các chi tiết đồng hoặc chi tiết gang</li>
@@ -892,7 +1116,18 @@
                                 <p>Ví dụ: LCuZn20 là đồng thau đơn giản, trong đó có 20% Zn, còn lại là đồng (80% Cu).</p>
                             </div>`,
                             "image": "https://github.com/caoquocdinh/anhkimloaimau/blob/main/brass.jpg?raw=true",
-                            "video": "https://www.youtube.com/embed/tFjZfa79bv0",                            
+                            "video": "https://www.youtube.com/embed/tFjZfa79bv0",
+                            "quiz": {
+                                "question": "Đồng thau là hợp kim của đồng và nguyên tố nào?",
+                                "options": [
+                                    "Kẽm",
+                                    "Thiếc",
+                                    "Nhôm",
+                                    "Chì"
+                                ],
+                                "correctIndex": 0,
+                                "explanation": "Đồng thau (Latông) là hợp kim của đồng và kẽm với hàm lượng kẽm ≤ 45%."
+                            },
                             "children": [
                                 {
                                     "name": "Đồng thau đơn giản",
@@ -955,7 +1190,7 @@
                                 <div class='info-section-title'><i class='fas fa-hammer'></i> Đồng thanh (Brông):</div>
                                 <p>Là hợp kim của đồng với các nguyên tố hợp kim khác (trừ Zn) như Sn, Al, Pb, ... Do đó có tên gọi là brông thiếc, brông nhôm, ...</p>
                                 <p>Brông thiếc có cơ tính cao, tính chống ăn mòn và khả năng chịu mài mòn tốt nên người ta thường sử dụng làm các bạc lót, ổ trượt, bánh vít, lò xo trong các thiết bị điện.</p>
-                                <p>Theo Tiêu chuẩn Nhà nước TCVN 1659-75, kí hiệu đồng thanh bằng chữ B, sau đó là các chữ ký hiệu tên nguyên tố hóa học và chỉ số biểu thị hàm lượng trung bình của các nguyên tố theo phần trăm (%).</p>
+                                <p>Theo Tiêu chuẩn Nhà nước TCVN 1659-75, , kí hiệu đồng thanh bằng chữ B, sau đó là các chữ ký hiệu tên nguyên tố hóa học và chỉ số biểu thị hàm lượng trung bình của các nguyên tố theo phần trăm (%).</p>
                                 <p>Một số mác đồng thanh là: BCuSn6; BCuSn6Zn6; BCuSn4Zn4Pb4.</p>
                                 <p>Ví dụ: BCuSn6 là đồng thanh thiếc, trong đó có 6% Sn, còn lại là đồng; BCuSn40Pb1 là đồng thanh thiếc có 40% Sn, 1% Pb và 59% Cu.</p>
                             </div>`,
@@ -1073,7 +1308,7 @@
                                     "Nhôm có độ tinh khiết 99.7%",
                                     "Nhôm có đặc tính điện đảm bảo",
                                     "Hợp kim nhôm chứa 99.7% Al",
-                                    "Nhôm dùng trong xây dựng"
+                                    "Nhôm dùng trong xây dự"
                                 ],
                                 "correctIndex": 1,
                                 "explanation": "Chữ 'E' trong ký hiệu chỉ loại nhôm có đặc tính điện đảm bảo, thường dùng trong ngành điện."
@@ -1108,6 +1343,17 @@
                             </div>`,
                             "image": "https://github.com/caoquocdinh/anhkimloaimau/blob/main/wrought%20aluminum.png?raw=true",
                             "video": "https://www.youtube.com/embed/IISS9jwc7Jw",
+                            "quiz": {
+                                "question": "Hợp kim nhôm gia công áp lực KHÔNG được dùng để làm gì?",
+                                "options": [
+                                    "Tấm, thỏi, dây, ống",
+                                    "Chế tạo chi tiết bằng phương pháp đúc",
+                                    "Gia công áp lực nóng hoặc nguội",
+                                    "Chế tạo các chi tiết máy"
+                                ],
+                                "correctIndex": 1,
+                                "explanation": "Hợp kim nhôm gia công áp lực được chế tạo thành tấm, thỏi, dây, ống và dùng để chế tạo các chi tiết bằng phương pháp gia công áp lực, không phải bằng phương pháp đúc."
+                            },
                             "children": [
                                 {
                                     "name": "Không hóa bền nhiệt luyện",
@@ -1167,7 +1413,7 @@
                             "name": "Hợp kim nhôm đúc",
                             "info": `<div class='info-section'>
                                 <div class='info-section-title'><i class='fas fa-cube'></i> Hợp kim nhôm đúc:</div>
-                                <p>Là hợp kim nhôm có nhiều nguyên tố hợp kim có nhiệt độ nóng chảy thấp hơn do đó có tính đúc cao. Loại này giòn hơn nên không gia công áp lực được, khả năng hóa bền bằng nhiệt luyện kém.</p>
+                                <p>Là hợp kim nhôm có nhiều nguyên tố hợp kim có nhiệt độ nóng chảy thấp hơn do đó có tính đúc cao. Loại này giòn hơn so với hợp kim gia công áp lực, khả năng hóa bền bằng nhiệt luyện kém.</p>
                                 <p>Đây là nhóm hợp kim nhôm có tính đúc tốt, dùng chế tạo các sản phẩm bằng phương pháp đúc. Để đạt được tính đúc tốt, hợp kim nhôm đúc cần có nhiệt độ nóng chảy thấp, do vậy thành phần hóa học càng gần cùng tinh càng tốt. Các hợp kim nhôm đúc thông dụng thường là các hệ hợp kim Al-Si; Al-Cu; Al-Mg.</p>
                                 <p>Ví dụ: AlSi7Cu2, AlMg5</p>
                                 <p>Dùng làm piston, tay biên, vỏ hộp tốc độ</p>
@@ -1177,15 +1423,15 @@ Ví dụ: AlSi7Cu2 là hợp kim nhôm đúc có 7% Si, 2% Cu, còn lại là Al
                             "image": "https://github.com/caoquocdinh/anhkimloaimau/blob/main/cast%20aluminum%20alloy%20application.png?raw=true",
                             "video": "https://www.youtube.com/embed/Gg-pZZpuXCE",
                             "quiz": {
-                                "question": "Tại sao hợp kim nhôm đúc thường chứa silic?",
+                                "question": "Hợp kim nhôm đúc thường có thành phần gần với điểm nào để có tính đúc tốt?",
                                 "options": [
-                                    "Để tăng độ dẫn điện",
-                                    "Để cải thiện tính đúc",
-                                    "Để giảm giá thành",
-                                    "Để tăng độ bền kéo"
+                                    "Điểm nóng chảy của nhôm",
+                                    "Điểm cùng tinh",
+                                    "Điểm hóa bền",
+                                    "Điểm hòa tan"
                                 ],
                                 "correctIndex": 1,
-                                "explanation": "Silicon giúp cải thiện tính đúc của hợp kim nhôm, giảm co ngót và tăng tính lưu động khi rót khuôn."
+                                "explanation": "Để đạt được tính đúc tốt, hợp kim nhôm đúc cần có nhiệt độ nóng chảy thấp, do vậy thành phần hóa học càng gần cùng tinh càng tốt."
                             }
                         }
                     ]
@@ -1617,7 +1863,30 @@ Ví dụ: AlSi7Cu2 là hợp kim nhôm đúc có 7% Si, 2% Cu, còn lại là Al
             }
         });
 
-        // ĐÃ XÓA: Chức năng "bạn có phải là giáo viên không" trong nút Kiểm tra
+        // Xử lý mở/đóng phần hướng dẫn
+        document.getElementById('guide-toggle').addEventListener('click', function() {
+            const content = document.getElementById('guide-content');
+            const chevron = document.getElementById('guide-chevron');
+            
+            content.classList.toggle('active');
+            
+            if (content.classList.contains('active')) {
+                chevron.innerHTML = '<i class="fas fa-chevron-up"></i>';
+            } else {
+                chevron.innerHTML = '<i class="fas fa-chevron-down"></i>';
+            }
+        });
+
+        // Mở hướng dẫn lần đầu truy cập
+        window.addEventListener('load', function() {
+            // Kiểm tra nếu đây là lần đầu truy cập
+            if (!sessionStorage.getItem('guideShown')) {
+                document.getElementById('guide-content').classList.add('active');
+                document.getElementById('guide-chevron').innerHTML = '<i class="fas fa-chevron-up"></i>';
+                sessionStorage.setItem('guideShown', 'true');
+            }
+        });
+
         // Nút Kiểm tra giờ đây sẽ trực tiếp mở Google Form
         document.getElementById('test-button').addEventListener('click', function(e) {
             // Không cần xử lý gì thêm, chỉ cần mở link Google Form đã được thiết lập trong href
